@@ -1,0 +1,88 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="generic-questions.html">
+
+<dom-module id="my-view2">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+
+      .inherit {
+        color: inherit;
+        background-color: inherit;
+      }
+    </style>
+
+    <div class="card">
+      <div class="circle">2</div>
+      <h1>Questions</h1>
+      <p>{{valu}}</p>
+      <iron-collapse id="quest1" opened="{{resetQ1}}">
+        <generic-question id="question1" check1="{{answerC1}}" check2="{{answerC2}}" check3="{{answerC3}}" path="questions{{valu}}/listQuestions1.json"></generic-question>
+      </iron-collapse>
+      <iron-collapse id="quest2" opened="{{resetQ2}}">
+        <generic-question id="question2" check1="{{answerC1}}" check2="{{answerC2}}" check3="{{answerC3}}" path="questions{{valu}}/listQuestions2.json"></generic-question>
+      </iron-collapse>
+      <iron-collapse id="quest3" opened="{{resetQ3}}">
+        <generic-question id="question3" check1="{{answerC1}}" check2="{{answerC2}}" check3="{{answerC3}}" path="questions{{valu}}/listQuestions3.json"></generic-question>
+      </iron-collapse>
+      <iron-collapse id="nextActivity" opened="{{resetE4}}">
+          <a href="../view3" class="inherit" tabindex="-1">
+            <paper-button raised on-click="showView" id="next">Vous avez gagné !</paper-button>
+          </a>
+      </iron-collapse>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-view2',
+
+      ready: function() {
+        this.$.question1.addEventListener('nextQuestion', this.setQuestion2.bind(this))
+        this.$.question2.addEventListener('nextQuestion', this.setQuestion3.bind(this))
+        this.$.question3.addEventListener('nextQuestion', this.nextActivity.bind(this))
+        this.resetQ1=true
+      },
+
+      setQuestion2: function(bool) {
+        this.$.quest2.opened = bool
+        this.$.quest1.opened=!bool
+      },
+      setQuestion3: function(bool) {
+        this.$.quest3.opened = bool
+        this.$.quest2.opened=!bool
+      },
+      nextActivity: function(bool) {
+        this.$.nextActivity.opened = bool
+        this.$.quest3.opened=!bool
+      },
+
+      showView: function() {
+        this.fire('showViewThree', true)
+      },
+
+      properties: {
+        
+      },
+
+    });
+  </script>
+</dom-module>

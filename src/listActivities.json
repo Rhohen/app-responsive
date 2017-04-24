@@ -1,0 +1,51 @@
+[
+	{
+		"idItem":"1",
+		"staticMedia":"58d52d626575de2207193fac",
+		"label":"myfirstgame",
+		"gameType":"tresor",
+		"gameDifficulty":5,
+		"gameDuration":30,
+		"gameProximity":1,
+		"unitGames":["58dbcaa5dc0b2a01553c59a8"]
+	},
+	{
+		"idItem":"2",
+		"staticMedia":"58d12091241b0868bfb29a3b",
+		"label":"Jeu à l'IUT",
+		"gameType":"quizz",
+		"gameDifficulty":3,
+		"gameDuration":10,
+		"gameProximity":3,
+		"unitGames":["58dd1b61dc0b2a01553c59ab"]
+	},
+	{
+		"idItem":"3",
+		"staticMedia":"58d12091241b0868bfb29a3b",
+		"label":"IUT",
+		"gameType":"culinaire",
+		"gameDifficulty":1,
+		"gameDuration":20,
+		"gameProximity":2,
+		"unitGames":["58dd23ba4704644b4ab307e4"]
+	},
+	{
+		"idItem":"4",
+		"staticMedia":"58d52d626575de2207193fac",
+		"label":"Test POI clue",
+		"gameType":"tresor",
+		"gameDifficulty":2,
+		"gameDuration":15,
+		"gameProximity":4,
+		"unitGames":["58e008b97d08713351f0af12"]
+	},
+	{
+		"idItem":"5",
+		"label":"Prunus MLG",
+		"gameType":"quizz",
+		"gameDifficulty":4,
+		"gameDuration":5,
+		"gameProximity":5,
+		"unitGames":["58e10d167d08713351f0af21"]
+	}
+]
